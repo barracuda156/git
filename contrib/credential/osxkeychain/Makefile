@@ -8,8 +8,7 @@ CFLAGS = -g -O2 -Wall
 -include ../../../config.mak
 
 git-credential-osxkeychain: git-credential-osxkeychain.o
-	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) \
-		-framework Security -framework CoreFoundation
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) -Wl,-framework -Wl,Security
 
 git-credential-osxkeychain.o: git-credential-osxkeychain.c
 	$(CC) -c $(CFLAGS) $<
